@@ -1,0 +1,28 @@
+# Node modules
+/node_modules
+
+# MongoDB
+/data/db
+*.ns
+*.0
+*.1
+
+# Logs
+*.log
+logs/
+*.gz
+*.pid
+
+.env
+*.env
+
+# Session files
+*.session
+
+# Optional REPL history
+.node_repl_history
+
+# Config files
+config/*.json
+!config/default.json
+!config/custom-environment-variables.json
