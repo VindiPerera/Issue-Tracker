@@ -122,7 +122,13 @@ export default function HomePage() {
             <h1 className="text-2xl font-bold text-gray-800">
               {filteredIssues.length} {filteredIssues.length === 1 ? 'Issue' : 'Issues'}
             </h1>
+            <Link
+              to="/create"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center disabled:opacity-70" >
+              + Create New Issue
+            </Link>
           </div>
+
 
           {/* Grouped issues by status */}
           {sortedStatuses.length > 0 ? (

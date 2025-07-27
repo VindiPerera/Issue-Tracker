@@ -33,39 +33,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Navigation Links - Center - Only show when logged in */}
-          {user && (
-            <div className="hidden md:flex items-center space-x-8">
-              <Link 
-                to="/" 
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300 flex items-center"
-              >
-                Dashboard
-              </Link>
-              <Link 
-                to="/issues" 
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300 flex items-center"
-              >
-                Issues
-              </Link>
-              <Link 
-                to="/report" 
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300 flex items-center"
-              >
-                Reports
-              </Link>
-              <div className="relative group">
-                <button className="px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300 flex items-center">
-                  More <ChevronDownIcon className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute hidden group-hover:block bg-indigo-800 mt-2 py-2 w-48 rounded-md shadow-xl z-10">
-                  <Link to="/projects" className="block px-4 py-2 text-sm hover:bg-indigo-700">Projects</Link>
-                  <Link to="/teams" className="block px-4 py-2 text-sm hover:bg-indigo-700">Teams</Link>
-                  <Link to="/settings" className="block px-4 py-2 text-sm hover:bg-indigo-700">Settings</Link>
-                </div>
-              </div>
-            </div>
-          )}
+         
 
           {/* Right Side: Auth and User Controls */}
           <div className="hidden md:flex items-center space-x-6">
@@ -99,12 +67,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 
-                <Link
-                  to="/create"
-                  className="bg-white text-indigo-600 px-4 py-2 rounded-md hover:bg-indigo-100 transition duration-300 font-semibold shadow-sm flex items-center"
-                >
-                  <span className="mr-1">+</span> New Issue
-                </Link>
+               
               </>
             ) : (
               <>

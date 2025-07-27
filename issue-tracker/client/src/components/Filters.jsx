@@ -11,7 +11,7 @@ export default function Filters({ onFilterChange }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Status and priority options
-  const statusOptions = ['Open', 'In Progress', 'Testing', 'Resolved', 'Closed'];
+  const statusOptions = ['Open', 'In Progress','Resolved', 'Closed'];
   const priorityOptions = ['Low', 'Medium', 'High', 'Critical'];
 
   // Apply filters when any filter changes

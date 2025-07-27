@@ -1,5 +1,5 @@
 // src/App.jsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
@@ -12,10 +12,14 @@ import NotFound from './pages/NotFound';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+  const location = useLocation();
+  const hideNavbarRoutes = ['/login', '/register'];
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+
   return (
     <AuthProvider>
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        <Navbar />
+        {!shouldHideNavbar && <Navbar />}
         <main className="flex-grow">
           <Routes>
             <Route path="/login" element={<Login />} />
