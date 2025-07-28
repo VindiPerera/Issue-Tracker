@@ -13,6 +13,7 @@ import {
   XMarkIcon
 } from '@heroicons/react/24/outline';
 import { fetchIssue, deleteIssue, updateIssue } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function IssueDetail() {
   const { id } = useParams();
@@ -22,6 +23,7 @@ export default function IssueDetail() {
   const [error, setError] = useState(null);
   const [actionLoading, setActionLoading] = useState(false);
   const [showStatusMenu, setShowStatusMenu] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const getIssue = async () => {
@@ -167,7 +169,7 @@ export default function IssueDetail() {
                     >
                       {issue.status}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinecap="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path strokeLinecap="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
                     
@@ -204,7 +206,7 @@ export default function IssueDetail() {
                   </div>
                   <div className="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinecap="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>ID: {issue._id}</span>
                   </div>
@@ -212,7 +214,7 @@ export default function IssueDetail() {
               </div>
               
               <div className="flex flex-wrap gap-2">
-                {issue.status !== 'Closed' && (
+                {/* {issue.status !== 'Closed' && (
                   <button 
                     onClick={handleCloseIssue}
                     disabled={actionLoading}
@@ -221,7 +223,7 @@ export default function IssueDetail() {
                     <CheckCircleIcon className="h-5 w-5 mr-1" />
                     <span>Close Issue</span>
                   </button>
-                )}
+                )} */}
                 
                 <button 
                   onClick={() => navigate(`/edit/${issue._id}`)}
@@ -262,13 +264,13 @@ export default function IssueDetail() {
                     <div className="flex-shrink-0 mr-3">
                       <div className="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinecap="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path strokeLinecap="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Issue created</p>
-                      <p className="text-sm text-gray-500">by John Doe</p>
+                      <p className="text-sm text-gray-500">by {user?.username || 'System'}</p>
                       <p className="text-sm text-gray-500 mt-1">{formatDate(issue.createdAt)}</p>
                     </div>
                   </div>
@@ -278,13 +280,13 @@ export default function IssueDetail() {
                       <div className="flex-shrink-0 mr-3">
                         <div className="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinecap="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            <path strokeLinecap="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                           </svg>
                         </div>
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Issue updated</p>
-                        <p className="text-sm text-gray-500">by Jane Smith</p>
+                        <p className="text-sm text-gray-500">by {user?.username || 'System'}</p>
                         <p className="text-sm text-gray-500 mt-1">{formatDate(issue.updatedAt)}</p>
                       </div>
                     </div>

@@ -6,9 +6,10 @@ export default function IssueForm({ formData, setFormData, onSubmit, buttonText 
   };
 
   return (
-    <form onSubmit={onSubmit} className="bg-white p-6 rounded-lg shadow-md">
+    <form onSubmit={onSubmit} className="mt-5 bg-white p-8 rounded-lg shadow-md">
+       <h1 className="text-2xl font-bold text-gray-800 mb-6">Create Issue</h1>
       <div className="mb-4">
-        <label className="block text-gray-700 font-medium mb-2">Title*</label>
+        <label className="block text-gray-700 font-medium mb-2">Title</label>
         <input
           type="text"
           name="title"
@@ -21,7 +22,7 @@ export default function IssueForm({ formData, setFormData, onSubmit, buttonText 
       </div>
 
       <div className="mb-4">
-        <label className="block text-gray-700 font-medium mb-2">Description*</label>
+        <label className="block text-gray-700 font-medium mb-2">Description</label>
         <textarea
           name="description"
           value={formData.description}

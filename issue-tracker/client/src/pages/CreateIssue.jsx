@@ -29,7 +29,7 @@ export default function CreateIssue() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Create New Issue</h1>
+      
       {error && <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">{error}</div>}
       <IssueForm 
         formData={formData} 

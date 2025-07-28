@@ -7,6 +7,7 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
   return (
+    
     <nav className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white shadow-lg">
       <div className="container mx-auto px-6 py-3">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
